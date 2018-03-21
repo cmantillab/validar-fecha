@@ -1,8 +1,29 @@
 $(function(){
-	var prueba = new Fecha(30, 2, 2001);
-	console.log(prueba.getDia()+"/"+ prueba.getMes() + "/"+ prueba.getAnio());
-	prueba.validarFecha();
+
+
+
+	validar();
+	
 });
+
+function validar(){
+	$('#validar').on('click', function(e){
+	e.preventDefault();
+
+	var dia = $('#dia').val();
+	var mes = $('#mes').val();
+	var anio = $('#anio').val();
+
+	var validFecha = new Fecha(parseInt(dia), parseInt(mes), parseInt(anio));
+
+	if(validFecha.validarFecha()){
+		$('#danger-biciesto').html("Fecha Valida");
+	}
+});
+}
+
+
+
 
 class Fecha {
 
